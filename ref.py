@@ -1,3 +1,19 @@
+a = [0,1,2,3,4,5,6,7,8,9]
+index = 4
+
+del a[3]
+a.pop(index)
+a.remove(object)
+
+from copy import deepcopy
+deepcopy(a)
+
+a = [2, 4, 6, 8]
+b = [3, 6, 9]
+
+print(list(set(a) | set(b)))  # 和集合
+print(list(set(a) & set(b)))  # 積集合
+
 # lsit.sort(func)
 # sorted(list, func)
 # 降順 reverse=True
@@ -7,6 +23,9 @@
 # 1番目でソートしたのち2番目でソート
 # sorted(list, key=itemgetter(1,2))
 # list.index(a)
+print(sorted(a, key=lambda x: x.upper())) 
+
+from collections import deque
 
 l = [0,1,2,3]
 q = deque(l)
@@ -79,7 +98,54 @@ print(bisect_left(L,12)) #7
 #12は一番後ろにくるので7番目に入ります。
 print(bisect(L,12)) #7 上に同じ
 
+# heap
+from heapq import heappop, heappush
+L=[3,0,2,5,7,2]
+H=[]
+for l in L: #ここはH=heapq.heapify(L)でもいいです。
+    heappush(H,l) 
+print(H) #[0, 3, 2, 5, 7, 2]
+print(heappop(H)) #0
+print(heappop(H)) #2
+print(heappop(H)) #2
 
+# 繰り返し二乗法
+# n^mをpで割ったあまり
+# pow(n, m, p)
+# 逆元
+# pow(n, p-2,p)
+
+# 便利関数
 from fractions import gcd
 print(gcd(78627872,1798742872)) #8
 # math.gcdかも
+
+# アスキーコード
+string = 'a'
+code = 65
+ord(string)
+chr(code)
+
+# itertools
+## 累積和
+from itertools import accumulate
+A = [1,1,2,3,4,5,3]
+list(accumulate(A))
+
+# そこまで早くない　全列挙
+from itertools import product, permutations,combinations
+A=[1,2,3,4]
+for i in permutations(A,2):
+    print(i,end=' ')
+#(1, 2) (1, 3) (1, 4) (2, 1) (2, 3) (2, 4) (3, 1) (3, 2) (3, 4) (4, 1) (4, 2) (4, 3) 
+for i in combinations(A,2):
+    print(i, end=' ')
+#(1, 2) (1, 3) (1, 4) (2, 3) (2, 4) (3, 4) 
+
+
+# bisect
+
+
+
+
+
